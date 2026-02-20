@@ -51,6 +51,14 @@ public String consultar(){
 public String probar(){
     return "Se prueba el producto";
 }
-    
+
+public boolean reducirUnidades(){
+    if(unidades<1){
+        return false;
+    }else{
+        unidades-=1;
+        return true;
+    } 
 }
 
+}
