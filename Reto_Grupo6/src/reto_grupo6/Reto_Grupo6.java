@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Reto_Grupo6 {
 
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-    static ArrayList<Producto> productos = new ArrayList<Producto>();
+    static ArrayList<Usuario> usuarios = new ArrayList<>();
+    static ArrayList<Producto> productos = new ArrayList<>();
 
     /**
      * @param args the command line arguments
@@ -59,7 +59,7 @@ public class Reto_Grupo6 {
                 System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
 
             } else if (opcion == 2) { // REGISTRO
-                System.out.println("Nombre: ");
+                System.out.print("Nombre: ");
                 String nombre = scanner.nextLine();
 
                 boolean fechaValida = false;
@@ -67,11 +67,11 @@ public class Reto_Grupo6 {
                 while (!fechaValida) {
                     try {
                         System.out.println("Fecha de nacimiento");
-                        System.out.println("Año: ");
+                        System.out.print("Año: ");
                         int año = scanner.nextInt();
-                        System.out.println("Mes: ");
+                        System.out.print("Mes: ");
                         int mes = scanner.nextInt();
-                        System.out.println("Dia: ");
+                        System.out.print("Dia: ");
                         int dia = scanner.nextInt();
 
                         fecha_nacimiento = LocalDate.of(año, mes, dia);
@@ -84,10 +84,10 @@ public class Reto_Grupo6 {
                     }
                 }
 
-                System.out.println("Saldo inicial: ");
+                System.out.print("Saldo inicial: ");
                 int saldo = scanner.nextInt();
                 scanner.nextLine(); // limpiar buffer
-                System.out.println("Contraseña: ");
+                System.out.print("Contraseña: ");
                 String contraseña = scanner.nextLine();
 
                 Usuario usuario1 = new Usuario(nombre, fecha_nacimiento, saldo, contraseña);
