@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Reto_Grupo6 {
 
-    static Scanner scanner;
+    static Scanner scanner = new Scanner(System.in);
     static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     static ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -22,83 +22,80 @@ public class Reto_Grupo6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Usuario usuarioActual = bienvenida();
+        System.out.println("Usuario logueado: " + usuarioActual.getNombre());
 
+        System.out.println(usuarioActual.getEdad());
     }
 
-    public static void bienvenida() {
-        scanner = new Scanner(System.in);
-        System.out.println("Bienvenido, que quieres hacer? \n"
-                + "1. Iniciar sesion"
-                + "2. Registarse");
-        int opcion = scanner.nextInt();
+    public static Usuario bienvenida() {
 
-        while (opcion != 1 || opcion != 2) { //bucle para validar la opcion del menu
-            System.out.println("Esa opcion no existe");
-            opcion = scanner.nextInt();
-        }
+        while (true) {
+            System.out.println("Bienvenido, ¿qué quieres hacer?");
+            System.out.println("1. Iniciar sesión");
+            System.out.println("2. Registrarse");
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); // limpiar buffer
 
-        if (opcion == 1) {
-            System.out.println("Usuario: ");
-            String usuario = scanner.nextLine();
-            System.out.println("Contraseña: ");
-            String contraseña = scanner.nextLine();
-            Usuario iniciadoSesion = null;
+            while (opcion != 1 && opcion != 2) { //bucle para validar la opcion del menu
+                System.out.println("Esa opcion no existe");
+                opcion = scanner.nextInt();
+                scanner.nextLine(); // limpiar buffer
+            }
 
-            for (int i = 0; i < usuarios.size(); i++) {
-                if (usuario.equals(usuarios.get(i).getNombre()) && contraseña.equals(usuarios.get(i).getContraseña())) {
-                    iniciadoSesion = usuarios.get(i);
-                    break;
+            if (opcion == 1) { // LOGIN
+                System.out.println("Usuario: ");
+                String usuario = scanner.nextLine();
+                System.out.println("Contraseña: ");
+                String contraseña = scanner.nextLine();
+
+                for (int i = 0; i < usuarios.size(); i++) {
+                    if (usuario.equals(usuarios.get(i).getNombre())
+                            && contraseña.equals(usuarios.get(i).getContraseña())) {
+                        System.out.println("Bienvenido, " + usuarios.get(i).getNombre());
+                        return usuarios.get(i); // devolvemos directamente el usuario
+                    }
                 }
-            }
+                System.out.println("Usuario o contraseña incorrectos. Intenta de nuevo.");
 
-            if (iniciadoSesion != null) {
-                System.out.println("Bienvenido, " + iniciadoSesion.getNombre());
-            } else {
-                System.out.println("Usuario o contraseña incorrectos");
-            }
-            
-            //A COMPLETAR (EN EL MAIN TODOS LOS DATOS DEL USUARIOS SE SACAN DEL USUARIOS QUE ESTE EN INICIADOSESION)
+            } else if (opcion == 2) { // REGISTRO
+                System.out.println("Nombre: ");
+                String nombre = scanner.nextLine();
 
-        } else if (opcion == 2) {
-            System.out.println("Nombre: ");
-            String nombre = scanner.nextLine();
-            LocalDate fecha_nacimiento = null;
-            boolean fechaValida = false;
+                boolean fechaValida = false;
+                LocalDate fecha_nacimiento = null;
+                while (!fechaValida) {
+                    try {
+                        System.out.println("Fecha de nacimiento");
+                        System.out.println("Año: ");
+                        int año = scanner.nextInt();
+                        System.out.println("Mes: ");
+                        int mes = scanner.nextInt();
+                        System.out.println("Dia: ");
+                        int dia = scanner.nextInt();
 
-            while (!fechaValida) { // Bucle hasta que la fecha sea válida
-                try {
-                    System.out.println("Fecha de nacimiento");
+                        fecha_nacimiento = LocalDate.of(año, mes, dia);
+                        fechaValida = true;
 
-                    System.out.println("Año: ");
-                    int año = scanner.nextInt();
-
-                    System.out.println("Mes: ");
-                    int mes = scanner.nextInt();
-
-                    System.out.println("Dia: ");
-                    int dia = scanner.nextInt();
-
-                    fecha_nacimiento = LocalDate.of(año, mes, dia);   // Intentar crear la fecha; si es inválida saltará DateTimeException
-                    fechaValida = true;
-
-                } catch (Exception e) {
-                    System.out.println("La fecha ingresada no es válida. Intenta de nuevo.");
-                } finally {
-                    scanner.nextLine(); // limpiar buffer
+                    } catch (Exception e) {
+                        System.out.println("La fecha ingresada no es válida. Intenta de nuevo.");
+                    } finally {
+                        scanner.nextLine(); // limpiar buffer
+                    }
                 }
+
+                System.out.println("Saldo inicial: ");
+                int saldo = scanner.nextInt();
+                scanner.nextLine(); // limpiar buffer
+                System.out.println("Contraseña: ");
+                String contraseña = scanner.nextLine();
+
+                Usuario usuario1 = new Usuario(nombre, fecha_nacimiento, saldo, contraseña);
+                usuarios.add(usuario1);
+
+                System.out.println("Usuario registrado correctamente. Bienvenido, " + usuario1.getNombre());
+                return usuario1;
             }
-
-            System.out.println("Saldo inicial: ");
-            int saldo = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("Contraseña: ");
-            String contraseña = scanner.nextLine();
-
-            Usuario usuario1 = new Usuario(nombre, fecha_nacimiento, saldo, contraseña);
-
         }
-
     }
-
-}
+} 
