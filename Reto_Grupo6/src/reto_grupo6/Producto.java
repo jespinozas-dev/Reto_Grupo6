@@ -20,6 +20,12 @@ public class Producto {
         this.unidades = unidades;
     }
 
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.unidades = -1;
+    }
+
     public String getNombre() {
         return nombre;
     }

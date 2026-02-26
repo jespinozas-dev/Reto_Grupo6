@@ -21,7 +21,7 @@ public class Videojuego extends Producto {
         this.empresa = empresa;
         this.puntuacion = puntuacion;
         this.formato = formato;
-        this.DLCs = new ArrayList<>();
+        this.DLCs = new ArrayList<DLC>();
     }
 
     public String getGenero() {
@@ -66,6 +66,10 @@ public class Videojuego extends Producto {
 
     public ArrayList<DLC> getDLCs() {
         return DLCs;
+    }
+
+    public void addDLCs(DLC dlc) {
+        DLCs.add(dlc);
     }
 
     @Override
