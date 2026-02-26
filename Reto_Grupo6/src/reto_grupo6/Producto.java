@@ -12,53 +12,53 @@ public class Producto {
     private String nombre;
     private double precio;
     private int unidades;
-    
 
-public Producto(String nombre, double precio, int unidades){
-    this.nombre=nombre;
-    this.precio=precio;
-    this.unidades=unidades;
-}
 
-public String getNombre(){
-    return nombre;
-}
+    public Producto(String nombre, double precio, int unidades) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.unidades = unidades;
+    }
 
-public double getPrecio(){
-    return precio;
-}
+    public String getNombre() {
+        return nombre;
+    }
 
-public int getUnidades(){
-    return unidades;
-}
+    public double getPrecio() {
+        return precio;
+    }
 
-public void setNombre(String nombre){
-    this.nombre=nombre;
-}
+    public int getUnidades() {
+        return unidades;
+    }
 
-public void setPrecio(double precio){
-    this.precio=precio;
-}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-public void setUnidades(int unidades){
-    this.unidades=unidades;
-}
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 
-public String consultar(){
-    return "Nombre: " + nombre + "\n Precio: " + precio + "\n Unidades: " + unidades;
-}
+    public void setUnidades(int unidades) {
+        this.unidades = unidades;
+    }
 
-public String probar(){
-    return "Se prueba el producto";
-}
+    public String consultar() {
+        return "Nombre: " + nombre + "\n Precio: " + precio + "\n Unidades: " + unidades;
+    }
 
-public boolean reducirUnidades(){
-    if(unidades<1){
-        return false;
-    }else{
-        unidades-=1;
-        return true;
-    } 
-}
+    public String probar() {
+        return "Se prueba el producto";
+    }
+
+    public boolean reducirUnidades() {
+        if (unidades < 1) {
+            return false;
+        } else {
+            unidades -= 1;
+            return true;
+        }
+    }
 
 }

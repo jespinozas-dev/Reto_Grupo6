@@ -8,18 +8,20 @@ package reto_grupo6;
  *
  * @author h.ramos
  */
-public class Mando extends Accesorio{
+public class Mando extends Accesorio {
     private String consola;
-    public Mando(String nombre, int precio, int unidades, String marca, String color, String consola){
+
+    public Mando(String nombre, int precio, int unidades, String marca, String color, String consola) {
         super(nombre, precio, unidades, marca, color);
-        this.consola=consola;
+        this.consola = consola;
     }
-    
-    public String getConsola(){
+
+    public String getConsola() {
         return consola;
     }
-    
-    public String probar(){
-        return "Probando el mando de "+consola;
+
+    @Override
+    public String probar() {
+        return "Probando el mando de " + consola;
     }
 }

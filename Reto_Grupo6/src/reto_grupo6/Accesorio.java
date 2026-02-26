@@ -11,20 +11,23 @@ package reto_grupo6;
 public class Accesorio extends Producto {
     private String marca;
     private String color;
-    
-    public Accesorio(String nombre, int precio, int unidades, String marca, String color){
-        super  (nombre, precio, unidades);
-        this.marca=marca;
-        this.color=color;
+
+    public Accesorio(String nombre, int precio, int unidades, String marca, String color) {
+        super(nombre, precio, unidades);
+        this.marca = marca;
+        this.color = color;
     }
-    public String getColor(){
+
+    public String getColor() {
         return color;
     }
-    public String getMarca(){
+
+    public String getMarca() {
         return marca;
-    } 
-    
-    public String probar(){
+    }
+
+    @Override
+    public String probar() {
         return "El accesorio funciona correctamente";
     }
 }

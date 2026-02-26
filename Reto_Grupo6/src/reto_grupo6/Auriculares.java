@@ -10,19 +10,21 @@ package reto_grupo6;
  */
 public class Auriculares extends Accesorio {
     private boolean microfono;
-    public Auriculares(String nombre, int precio, int unidades, String marca, String color, boolean microfono){
+
+    public Auriculares(String nombre, int precio, int unidades, String marca, String color, boolean microfono) {
         super(nombre, precio, unidades, marca, color);
-        this.microfono=microfono;
+        this.microfono = microfono;
     }
-    
-    public boolean getMicrofono(){
+
+    public boolean getMicrofono() {
         return microfono;
     }
-    
-    public String probar(){
+
+    @Override
+    public String probar() {
         if (microfono) {
             return "Probando auriculares con microfono";
-        }else{
+        } else {
             return "Probando auriculares sin microfono";
         }
     }
