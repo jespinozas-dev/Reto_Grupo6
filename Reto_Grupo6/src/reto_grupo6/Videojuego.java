@@ -11,15 +11,17 @@ public class Videojuego extends Producto {
     private int anio;
     private String empresa;
     private int puntuacion;
+    private String plataforma;
     private boolean formato;
     private ArrayList<DLC> DLCs;
 
-    public Videojuego(String nombre, double precio, int unidades, String genero, int anio, String empresa, int puntuacion, boolean formato, ArrayList<DLC> DLCs) {
+    public Videojuego(String nombre, double precio, int unidades, String genero, int anio, String empresa, int puntuacion, String plataforma, boolean formato, ArrayList<DLC> DLCs) {
         super(nombre, precio, unidades);
         this.genero = genero;
         this.anio = anio;
         this.empresa = empresa;
         this.puntuacion = puntuacion;
+        this.plataforma = plataforma;
         this.formato = formato;
         this.DLCs = new ArrayList<DLC>();
     }
@@ -79,6 +81,6 @@ public class Videojuego extends Producto {
 
     @Override
     public String consultar() {
-        return "\nTítulo: " + super.getNombre() + "\nAño: " + anio + "\nGénero: " + genero + "\nEmpresa desarroladora: " + empresa + "\nPuntuación " + puntuacion + "\nVersión física: " + (formato ? "Sí" : "No");
+        return "\nTítulo: " + super.getNombre() + "\nAño: " + anio + "\nGénero: " + genero + "\nEmpresa desarroladora: " + empresa + "\nPuntuación " + puntuacion + "\nPlataforma: " + plataforma + "\nVersión física: " + (formato ? "Sí" : "No");
     }
 }
