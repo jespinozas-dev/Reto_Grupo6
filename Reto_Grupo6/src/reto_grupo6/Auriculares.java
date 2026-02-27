@@ -11,13 +11,22 @@ package reto_grupo6;
 public class Auriculares extends Accesorio {
     private boolean microfono;
 
-    public Auriculares(String nombre, int precio, int unidades, String marca, String color, boolean microfono) {
-        super(nombre, precio, unidades, marca, color);
+    public Auriculares(String nombre, int precio, int unidades, String descripcion, String marca, String color, boolean microfono) {
+        super(nombre, precio, unidades, descripcion, marca, color);
         this.microfono = microfono;
     }
 
-    public boolean getMicrofono() {
+    public boolean isMicrofono() {
         return microfono;
+    }
+
+    public void setMicrofono(boolean microfono) {
+        this.microfono = microfono;
+    }
+
+    @Override
+    public String consultar() {
+        return "\nNombre: " + super.getNombre() + "\nPrecio: " + super.getPrecio() + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + super.getMarca() + "\nColor: " + super.getColor() + "\nMicrófono: " + (microfono ? "Sí" : "No");
     }
 
     @Override

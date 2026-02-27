@@ -12,18 +12,21 @@ public class Producto {
     private String nombre;
     private double precio;
     private int unidades;
+    private String descripcion;
 
 
-    public Producto(String nombre, double precio, int unidades) {
+    public Producto(String nombre, double precio, int unidades, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
         this.unidades = unidades;
+        this.descripcion = descripcion;
     }
 
-    public Producto(String nombre, double precio) {
+    public Producto(String nombre, double precio, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
         this.unidades = -1;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -50,12 +53,20 @@ public class Producto {
         this.unidades = unidades;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public String consultar() {
-        return "Nombre: " + nombre + "\n Precio: " + precio + "\n Unidades: " + unidades;
+        return "\nNombre: " + nombre + "\n Precio: " + precio + "\n Descripción del producto: " + descripcion;
     }
 
     public String probar() {
-        return "Se prueba el producto";
+        return "\nEl producto funciona correctamente.";
     }
 
     public boolean reducirUnidades() {
@@ -66,5 +77,4 @@ public class Producto {
             return true;
         }
     }
-
 }

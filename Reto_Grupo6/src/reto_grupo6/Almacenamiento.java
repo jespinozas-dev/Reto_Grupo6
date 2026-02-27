@@ -9,15 +9,24 @@ package reto_grupo6;
  * @author h.ramos
  */
 public class Almacenamiento extends Accesorio {
-    private String capacidad;
+    private int capacidad;
 
-    public Almacenamiento(String nombre, int precio, int unidades, String marca, String color, String capacidad) {
-        super(nombre, precio, unidades, marca, color);
+    public Almacenamiento(String nombre, int precio, int unidades, String descripcion, String marca, String color, int capacidad) {
+        super(nombre, precio, unidades, descripcion, marca, color);
         this.capacidad = capacidad;
     }
 
-    public String getCapacidad() {
+    public int getCapacidad() {
         return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    @Override
+    public String consultar() {
+        return "\nNombre: " + super.getNombre() + "\nPrecio: " + super.getPrecio() + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + super.getMarca() + "\nColor: " + super.getColor() + "\nCapacidad (GB): " + capacidad;
     }
 
     @Override

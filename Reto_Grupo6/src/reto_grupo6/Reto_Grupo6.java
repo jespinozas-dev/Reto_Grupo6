@@ -26,7 +26,7 @@ public class Reto_Grupo6 {
      */
     public static void main(String[] args) {
         Usuario usuarioActual = null;
-        
+
         while (true) {
             int opcion = menu();
             switch (opcion) {
@@ -42,7 +42,7 @@ public class Reto_Grupo6 {
 
             int opcion2 = 0;
 
-            while (opcion2 != 3) {
+            while (opcion2 == 1 || opcion2 == 2) {
                 opcion2 = menuPrincipal();
                 switch (opcion2) {
                     case 1:
@@ -84,15 +84,15 @@ public class Reto_Grupo6 {
     }
 
     public static int menuPrincipal() {
-        System.out.println("Que quieres hacer ahora?");
-        System.out.println("1. Ver catalogo");
-        System.out.println("2. Ver perfil");
-        System.out.println("3. Cerrar sesion");
+        System.out.println("¿Qué quieres hacer ahora?");
+        System.out.println("1. Ver catálogo");
+        System.out.println("2. Mi perfil");
+        System.out.println("3. Cerrar sesión");
         int opcion = scanner.nextInt();
         scanner.nextLine();
 
         while (opcion != 1 && opcion != 2 && opcion != 3) {
-            System.out.println("Esa opcion no existe");
+            System.out.println("Esa opción no existe.");
             opcion = scanner.nextInt();
             scanner.nextLine();
         }
@@ -101,7 +101,7 @@ public class Reto_Grupo6 {
     }
 
     public static int menuCatalogo() {
-        System.out.println("Que quieres hacer?");
+        System.out.println("¿Qué quieres hacer?");
         System.out.println("1. Consultar producto");
         System.out.println("2. Probar producto");
         System.out.println("3. Comprar producto");
@@ -110,7 +110,7 @@ public class Reto_Grupo6 {
         scanner.nextLine();
 
         while (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4) {
-            System.out.println("Esa opcion no existe");
+            System.out.println("Esa opción no existe");
             opcion = scanner.nextInt();
             scanner.nextLine();
         }
@@ -119,15 +119,15 @@ public class Reto_Grupo6 {
     }
 
     public static int menuPerfil() {
-        System.out.println("Que quieres hacer?");
+        System.out.println("¿Qué quieres hacer?");
         System.out.println("1. Añadir saldo");
-        System.out.println("2. Ver compras");
-        System.out.println("3. Salir");
+        System.out.println("2. Ver tus compras");
+        System.out.println("3. Volver al menú principal");
         int opcion = scanner.nextInt();
         scanner.nextLine();
 
         while (opcion != 1 && opcion != 2 && opcion != 3) {
-            System.out.println("Esa opcion no existe");
+            System.out.println("Esa opción no existe");
             opcion = scanner.nextInt();
             scanner.nextLine();
         }
@@ -136,14 +136,14 @@ public class Reto_Grupo6 {
     }
 
     public static int menuCompras() {
-        System.out.println("Que quieres hacer?");
-        System.out.println("1. Devovler producto");
+        System.out.println("¿Qué quieres hacer?");
+        System.out.println("1. Devolver producto");
         System.out.println("2. Salir");
         int opcion = scanner.nextInt();
         scanner.nextLine();
 
         while (opcion != 1 && opcion != 2) {
-            System.out.println("Esa opcion no existe");
+            System.out.println("Esa opción no existe");
             opcion = scanner.nextInt();
             scanner.nextLine();
         }
@@ -152,18 +152,31 @@ public class Reto_Grupo6 {
     }
 
     public static int menu() {
-        System.out.println("Bienvenido, ¿qué quieres hacer?");
+        System.out.println("Bienvenido a nuestra tienda, ¿qué quieres hacer?");
         System.out.println("1. Iniciar sesión");
         System.out.println("2. Registrarse");
         System.out.println("3. Salir");
-        int opcion = scanner.nextInt();
-        scanner.nextLine();
+        int opcion;
 
-        while (opcion != 1 && opcion != 2 && opcion != 3) {
-            System.out.println("Esa opcion no existe");
+
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("ERROR. No ha introducido un número.");
+                scanner.nextLine();  // Limpia el String basura
+            }
+            System.out.println("ERROR. Introduce un número válido (1-3).");
             opcion = scanner.nextInt();
             scanner.nextLine();
-        }
+        } while (opcion != 1 && opcion != 2 && opcion != 3);
+
+        // *MANERA DE HACERLO PARA QUE DÉ ERROR CON OTROS TIPOS DE DATO (EN VEZ DE CRASHEAR)*
+//        int opcion;
+//
+//        do {
+//            System.out.println("ERROR. Introduce una opción válida.");
+//        } while (!scanner.hasNextInt());
+//        opcion = scanner.nextInt();
+//        scanner.nextLine();
 
         return opcion;
     }
@@ -267,7 +280,7 @@ public class Reto_Grupo6 {
     }
 
     public static void consultar() {
-        System.out.println("Sobre que producto quieres consultar?");
+        System.out.println("¿Qué producto quieres consultar?");
         int numero = scanner.nextInt();
         Producto productoSeleccionado = null;
         for (int i = 0; i < productos.size(); i++) {
@@ -280,7 +293,7 @@ public class Reto_Grupo6 {
     }
 
     public static void probar() {
-        System.out.println("Que producto quieres probar?");
+        System.out.println("¿Qué producto deseas probar?");
         int numero = scanner.nextInt();
         Producto productoSeleccionado = null;
         for (int i = 0; i < productos.size(); i++) {
@@ -293,7 +306,7 @@ public class Reto_Grupo6 {
     }
 
     public static void comprar(Usuario usuarioActual) {
-        System.out.println("Que producto quieres comprar?");
+        System.out.println("¿Qué producto deseas comprar?");
         int numero = scanner.nextInt();
         Producto productoSeleccionado = null;
         for (int i = 0; i < productos.size(); i++) {
@@ -306,12 +319,12 @@ public class Reto_Grupo6 {
     }
 
     public static void añadirSaldo(Usuario usuarioActual) {
-        System.out.println("Cuanto saldo quieres añadir?");
+        System.out.println("¿Cuánto saldo quieres añadir?");
         int cantidad = scanner.nextInt();
         if (usuarioActual.añadirSaldo(cantidad)) {
             System.out.println("Has añadido " + cantidad + "$");
         } else {
-            System.out.println("Esa cantidad no es valida");
+            System.out.println("Esa cantidad no es valida.");
         }
     }
 
@@ -320,5 +333,4 @@ public class Reto_Grupo6 {
             System.out.println((i + 1) + "- " + usuarioActual.comprasRealizadas.get(i));
         }
     }
-
 }

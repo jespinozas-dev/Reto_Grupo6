@@ -12,8 +12,8 @@ public class Accesorio extends Producto {
     private String marca;
     private String color;
 
-    public Accesorio(String nombre, int precio, int unidades, String marca, String color) {
-        super(nombre, precio, unidades);
+    public Accesorio(String nombre, int precio, int unidades, String descripcion, String marca, String color) {
+        super(nombre, precio, unidades, descripcion);
         this.marca = marca;
         this.color = color;
     }
@@ -24,6 +24,11 @@ public class Accesorio extends Producto {
 
     public String getMarca() {
         return marca;
+    }
+
+    @Override
+    public String consultar() {
+        return "\nNombre: " + super.getNombre() + "\nPrecio: " + super.getPrecio() + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + marca + "\nColor: " + color;
     }
 
     @Override
