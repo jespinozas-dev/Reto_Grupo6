@@ -17,7 +17,7 @@ public class Usuario {
     private LocalDate fecha_nacimiento;
     private double saldo;
     private String contraseña;
-    private ArrayList<Producto> comprasRealizadas;
+    ArrayList<Producto> comprasRealizadas;
 
     public Usuario(String nombre, LocalDate fecha_nacimiento, double saldo, String contraseña) {
         this.nombre = nombre;
@@ -68,12 +68,18 @@ public class Usuario {
     }
 
 
-    public void añadirSaldo(int saldo) {
-        this.saldo += saldo;
+    public boolean añadirSaldo(int saldo) {
+        if(saldo < 0){
+            return false;
+        }else{
+            this.saldo += saldo;
+            return true;
+        }
+        
     }
 
     public boolean comprar(Producto producto) {
-        if (producto.reducirUnidades()) {
+        if (producto.reducirUnidades() && saldo>=producto.getPrecio()) {
             comprasRealizadas.add(producto);
             return true;
         } else {
