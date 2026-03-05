@@ -17,7 +17,7 @@ public class DLC extends Producto {
 
     @Override
     public String consultar() {
-        return "\nTítulo: " + videojuego + ":" + super.getNombre() + "\nAño: " + anio + "\nGénero: " + videojuego.getGenero() + "\nEmpresa desarrolladora: " + videojuego.getEmpresa() + "\nPuntuación " + videojuego.getPuntuacion() + "\nPlataforma: " + videojuego.getPlataforma() + "\nSinopsis " + super.getDescripcion();
+        return "\nTítulo: " + super.getNombre() + "\nAño: " + anio + "\nGénero: " + videojuego.getGenero() + "\nEmpresa desarrolladora: " + videojuego.getEmpresa() + "\nPuntuación " + videojuego.getPuntuacion() + "\nPlataforma: " + videojuego.getPlataforma() + "\nSinopsis " + super.getDescripcion();
     }
 
     @Override
