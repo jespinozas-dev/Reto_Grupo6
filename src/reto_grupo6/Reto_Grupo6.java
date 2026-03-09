@@ -284,7 +284,7 @@ public class Reto_Grupo6 {
             String contraseña = scanner.nextLine();
 
             for (int i = 0; i < usuarios.size(); i++) {
-                if (usuario.equals(usuarios.get(i).getNombre())
+                if (usuario.equalsIgnoreCase(usuarios.get(i).getNombre())
                         && contraseña.equals(usuarios.get(i).getContraseña())) {
 
                     System.out.println("Bienvenido, "
