@@ -29,6 +29,7 @@ public class Reto_Grupo6 {
         Usuario usuarioActual = null;
         generarProductos();
         separarCatalogos(); // rellenamos las dos listas auxiliares
+        usuarios.add(new Usuario("Lucho", LocalDate.of(1996, 9, 6), 1000, "patata"));
 
         while (true) {
             while (usuarioActual == null) {
