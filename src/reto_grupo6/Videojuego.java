@@ -84,7 +84,7 @@ public class Videojuego extends Producto {
 
     @Override
     public String consultar() {
-        return "\nTítulo: " + super.getNombre() + "\nAño: " + anio + "\nGénero: " + genero + "\nPrecio: " + super.getPrecio() + "\nEmpresa desarrolladora: " + empresa + "\nPuntuación " + puntuacion + "\nPlataforma: " + plataforma + "\nVersión física: " + (formato ? "Sí" : "No") + "\nSinopsis: " + super.getDescripcion();
+        return "\nTítulo: " + super.getNombre() + "\nAño: " + anio + "\nGénero: " + genero + "\nPrecio: " + Math.round(super.getPrecio() * 100.0) / 100.0 + " $" + "\nEmpresa desarrolladora: " + empresa + "\nPuntuación: " + puntuacion + "\nPlataforma: " + plataforma + "\nVersión física: " + (formato ? "Sí" : "No") + "\nSinopsis: " + super.getDescripcion();
     }
 
     @Override

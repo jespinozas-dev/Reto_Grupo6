@@ -456,11 +456,9 @@ public class Reto_Grupo6 {
             }
 
             Producto productoSeleccionado = obtenerProductoDeCatalogo(tipoCatalogo, numero);
-            if (usuarioActual.comprar(productoSeleccionado)) {
-                System.out.println("Compraste el " + productoSeleccionado.getNombre());
-            } else {
-                System.out.println("Hubo un error en la compra");
-            }
+
+            System.out.println(usuarioActual.comprar(productoSeleccionado) ? "Has comprado el " + productoSeleccionado.getNombre() : "Error. No tienes suficiente saldo.");
+
         } catch (java.util.InputMismatchException e) {
             System.out.println("Debes ingresar un número válido.");
             scanner.nextLine();

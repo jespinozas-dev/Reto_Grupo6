@@ -29,7 +29,7 @@ public class Accesorio extends Producto {
 
     @Override
     public String consultar() {
-        return "\nNombre: " + super.getNombre() + "\nPrecio: " + super.getPrecio() + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + marca + "\nColor: " + color;
+        return "\nNombre: " + super.getNombre() + "\nPrecio: " + Math.round(super.getPrecio() * 100.0) / 100.0 + " $" + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + marca + "\nColor: " + color;
     }
 
     @Override

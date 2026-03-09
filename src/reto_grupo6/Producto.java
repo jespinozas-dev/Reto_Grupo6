@@ -62,7 +62,7 @@ public class Producto {
     }
 
     public String consultar() {
-        return "\nNombre: " + nombre + "\n Precio: " + precio + "\n Descripción del producto: " + descripcion;
+        return "\nNombre: " + nombre + "\n Precio: " + Math.round(precio * 100.0) / 100.0 + " $" + "\n Descripción del producto: " + descripcion;
     }
 
     public String probar() {

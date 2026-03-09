@@ -26,7 +26,7 @@ public class Almacenamiento extends Accesorio {
 
     @Override
     public String consultar() {
-        return "\nNombre: " + super.getNombre() + "\nPrecio: " + super.getPrecio() + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + super.getMarca() + "\nColor: " + super.getColor() + "\nCapacidad (GB): " + capacidad;
+        return "\nNombre: " + super.getNombre() + "\nPrecio: " + Math.round(super.getPrecio() * 100.0) / 100.0 + " $" + "\nDescripción del producto: " + super.getDescripcion() + "\nMarca: " + super.getMarca() + "\nColor: " + super.getColor() + "\nCapacidad (GB): " + capacidad;
     }
 
     @Override
